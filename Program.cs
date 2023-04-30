@@ -48,32 +48,31 @@ namespace HomeWork_Regex_Contunue
 
                 Console.WriteLine("Task 2.0");
 
-                //у меня не работает парсинг почты
-                // и я не понял как сделать После того, как пользователь вводит слово "END_INPUT" в любом месте своего ввода
+                string exit = "end_input";
+                do {
+                    Console.WriteLine("Имя, телефон, адрес электронной почты: ");
+                    string data = Console.ReadLine();
 
-                Console.WriteLine("Имя, телефон, адрес электронной почты: ");
-                string data = Console.ReadLine();
-
-                Regex phone = new Regex(@"(\d+)");
-                Regex name = new Regex(@"(^.*?\s)");
-                Regex email = new Regex(@"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)");
-                MatchCollection matchFind2 = phone.Matches(data);
-                MatchCollection matchFind3 = name.Matches(data);
-                MatchCollection matchFind4 = email.Matches(data);
-                Console.WriteLine("Таблица с данными:");
-                foreach (var item in matchFind2)
-                {
-                    Console.Write($"Телефон: {item}\n");
-                }
-                foreach (var item in matchFind3)
-                {
-                    Console.Write($"Имя: \t{item}\n");
-                }
-                foreach (var item in matchFind4)
-                {
-                    Console.Write($"Email: \t{item}\n");
-                }
-
+                    Regex phone = new Regex(@"(\d+)");
+                    Regex name = new Regex(@"(^.*?\s)");
+                    Regex email = new Regex(@"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)");
+                    MatchCollection matchFind2 = phone.Matches(data);
+                    MatchCollection matchFind3 = name.Matches(data);
+                    MatchCollection matchFind4 = email.Matches(data);
+                    Console.WriteLine("Таблица с данными:");
+                    foreach (var item in matchFind2)
+                    {
+                        Console.Write($"Телефон: {item}\n");
+                    }
+                    foreach (var item in matchFind3)
+                    {
+                        Console.Write($"Имя: \t{item}\n");
+                    }
+                    foreach (var item in matchFind4)
+                    {
+                        Console.Write($"Email: \t{item}\n");
+                    }
+                }while (input.ToLower() != exit);
 
 
                 Console.ReadLine();
